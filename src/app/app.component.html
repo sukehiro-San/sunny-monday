@@ -1,11 +1,12 @@
 <nav>
-  <a [routerLink]="['/home']">Home</a>
-  <a [routerLink]="['/admin']">Admin</a>
-  <a [routerLink]="['/dashboard']">Dashboard</a>
-  @if(loggedIn){
+  <a [routerLink]="['/home']" [routerLinkActive]="'active'">Home</a>
+  <a [routerLink]="['/admin']" [routerLinkActive]="'active'">Admin</a>
+  <a [routerLink]="['/dashboard']" [routerLinkActive]="'active'">Dashboard</a>
+  <div class="spacer"></div>
+  @if(!auth.loggedIn){
+  <a [routerLink]="['/login']" [routerLinkActive]="'active'">Login</a>
+  } @if(auth.loggedIn){
   <button (click)="logOut()">Logout</button>
-  } @else{
-  <button (click)="logIn()">Login</button>
   }
 </nav>
 

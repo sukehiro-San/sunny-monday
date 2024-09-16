@@ -1,1 +1,32 @@
-<p>dashboard works!</p>
+<div class="loading" *ngIf="postsLoading">
+    <div class="spinner"></div>
+</div>
+<div class="dashboard-container" *ngIf="!postsLoading">
+  <mat-form-field>
+    <mat-label>Filter Posts</mat-label>
+    <input matInput name="filter" [(ngModel)]="filterText" (ngModelChange)="applyFilter($event)" />
+  </mat-form-field>
+  <table>
+    <tr>
+      <th>Post Id</th>
+      <th>Post Title</th>
+    </tr>
+    @for (post of postsLists; track post.id) {
+    <tr>
+      <td>{{ post.id }}</td>
+      <td>{{ post.title }}</td>
+    </tr>
+    }
+  </table>
+  <div class="paginator">
+    <mat-paginator
+      [length]="getFilteredLength()"
+      (page)="pageChange($event)"
+      [pageSize]="10"
+      [pageIndex]="pageIndex"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+  </div>
+</div>

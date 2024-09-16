@@ -1,0 +1,22 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 20px;
+  font-family: sans-serif;
+  font-size: 1.1em;
+  box-shadow: 0px 1px 20px 1px #65656567;
+  margin-bottom: 30px;
+  .spacer {
+    flex: 1;
+  }
+  a {
+    text-decoration: none;
+    margin-left : 5px;
+    padding: 5px 10px;
+    color:rgb(81, 81, 81);
+    font-weight:600;
+  }
+  a.active {
+    color: red;
+  }
+}
